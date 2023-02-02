@@ -1,11 +1,7 @@
 const { MongoClient } = require("mongodb");
 require('dotenv').config();
 
-const username = process.env.MONGODB_USERNAME;
-const password = process.env.MONGODB_PASSWORD;
-const uri = `mongodb+srv://${username}:${password}@ccluster0.7xwmcsp.mongodb.net/?retryWrites=true&w=majority`;
-
-const client = new MongoClient(uri);
+const client = new MongoClient(process.env.MONGODB_URI);
 const database = client.db("pokefight");
 const scoreboard = database.collection("fightHistory");
 
