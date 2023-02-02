@@ -31,6 +31,7 @@ async function insertResult(a,b,c,d,e) {
   };
   const result = await scoreboard.insertOne(doc);
   console.log(`A document was inserted with the _id: ${result.insertedId}`);
+  return result;
 }
 
 module.exports = {
