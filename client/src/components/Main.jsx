@@ -1,18 +1,20 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Navbar from 'react-bootstrap/Navbar';
-import React, { useState, useEffect } from 'react';
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Navbar from "react-bootstrap/Navbar";
+import React, { useState, useEffect } from "react";
 
 function Main() {
-  // function fetchPokedex() {
-  //   const [data, setData] = useState([]);
-  
-  //   useEffect(() => {
-  //     fetch('https://api.example.com/data')
-  //       .then(response => response.json())
-  //       .then(data => setData(data));
-  //   }, []);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://pokefight-ox3e.onrender.com/pokemon")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      });
+  }, []);
 
   return (
     <Navbar bg="light" expand="lg">
@@ -35,4 +37,4 @@ function Main() {
   );
 }
 
-export default Main
+export default Main;
