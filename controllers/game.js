@@ -2,6 +2,7 @@ const { fetchData, insertResult } = require("../db");
 require("dotenv").config();
 
 const saveResult = async (req, res) => {
+  console.log(req.body);
   const { pokemon1, pokemon2, starter, winner, time } = req.body;
   res
     .status(200)
