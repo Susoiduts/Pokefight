@@ -1,4 +1,0 @@
-done | Create a Game schema and model in the appropriate models folder.
-in progress | Create a route in your back-end (like /game/save) where you will send the result of each game (which Pokemon won against who, in how many turns and any other info you feel necessary). You’ll save this game data in your DB.
-done | Create a route (like /game/leaderboard) where the front-end can retrieve all the previous games infos
-frontend | Your React app should then have a /leaderboard route where the information of the previous games will be displayed.
