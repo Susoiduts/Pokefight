@@ -1,29 +1,38 @@
-import React from 'react'
-import Card from './Card'
-import Pokeinfo from "./Pokeinfo"
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Navbar from 'react-bootstrap/Navbar';
+import React, { useState, useEffect } from 'react';
 
-const Main = () => {
+function Main() {
+  // function fetchPokedex() {
+  //   const [data, setData] = useState([]);
+  
+  //   useEffect(() => {
+  //     fetch('https://api.example.com/data')
+  //       .then(response => response.json())
+  //       .then(data => setData(data));
+  //   }, []);
+
   return (
-    <>
-    <div className="container">
-        <div className="left-content">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-        </div>
-
-        <div className="right-content">
-            <Pokeinfo />
-        </div>
-
-        
-    </div>
-
-    </>
-  )
+    <Navbar bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Brand href="#">Pokefight</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
 export default Main
