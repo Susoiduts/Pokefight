@@ -15,6 +15,7 @@ function Main() {
         setData(data);
       });
   }, []);
+ 
 
   return (
     <Navbar bg="light" expand="lg">
