@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import React, { useState, useEffect } from "react";
 import Pokeinfo from "./Pokeinfo";
 
-function Main({ data }) {
+function Main() {
   const zufall = Math.floor( Math.random() * 800) 
  
 
@@ -28,7 +28,8 @@ function Main({ data }) {
       </Container>
     </Navbar>
 
-    <Pokeinfo data={data} zufallgen={zufall}></Pokeinfo>
+    <Pokeinfo zufallgen={zufall}></Pokeinfo>
+    {/* <Pokeinfo></Pokeinfo> */}
     </div>
   );
 }
