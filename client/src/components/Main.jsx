@@ -3,22 +3,14 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import React, { useState, useEffect } from "react";
+import Pokeinfo from "./Pokeinfo";
 
-function Main() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch("https://pokefight-ox3e.onrender.com/pokemon")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setData(data);
-      });
-  }, []);
+function Main({ data }) {
+  const zufall = Math.floor( Math.random() * 800) 
  
 
   return (
-    <Navbar bg="light" expand="lg">
+    <div><Navbar bg="light" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">Pokefight</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -35,6 +27,9 @@ function Main() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
+    <Pokeinfo data={data} zufallgen={zufall}></Pokeinfo>
+    </div>
   );
 }
 
