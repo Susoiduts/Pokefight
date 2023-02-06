@@ -1,0 +1,11 @@
+- Pokeinfo = PokeCarousel;
+- .js Dateien in root ordner verschieben
+- randompokemons ordner auflösen
+- ConnectPokeApi -> redundant zu Randomfetch? Mit in PokeCarousel
+- RandomFetchPokeApi in FetchPokeApi umbenennen
+- card löschen
+- Randompokemon in MiniPokeCard umbennen, nur Namen und Bild
+- DetailPokeCard Komponente erstellen
+- ArenaPage Komponente erstellen
+- Main in MainPage umbenennen
+- Bootstrap
