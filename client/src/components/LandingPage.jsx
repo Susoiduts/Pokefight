@@ -3,10 +3,10 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import React, { useState, useEffect } from "react";
-import Pokeinfo from "./Pokeinfo";
+import Pokeinfo from "./PokemonCarousel";
 
-function Main() {
-  const zufall = Math.floor( Math.random() * 800) 
+function LandingPage() {
+
  
 
   return (
@@ -28,10 +28,10 @@ function Main() {
       </Container>
     </Navbar>
 
-    <Pokeinfo zufallgen={zufall}></Pokeinfo>
+    <Pokeinfo ></Pokeinfo>
     {/* <Pokeinfo></Pokeinfo> */}
     </div>
   );
 }
 
-export default Main;
+export default LandingPage;
