@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Randompokemon from "./PokemonCard";
 import fetchPokePicture from "./pokeApi";
 
-const Pokeinfo = () => {
+const Pokeinfo = ({setActiveButton}) => {
   // fetch aus MongoDB-Datenbank
   const [pokedex, setPokedex] = useState({}); //fpr Carousel and Search later
   const [pokemonAttack, setPokemonAttack] = useState();
@@ -13,11 +13,12 @@ const Pokeinfo = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setActiveButton(false);
       const response = await fetch(
         "https://pokefight-ox3e.onrender.com/pokemon"
       );
       const data = await response.json();
-
+      
       //save Pokedex locally
       setPokedex(data.map((names) => names.name.english.toLowerCase()));
       //generate random number
@@ -43,7 +44,9 @@ const Pokeinfo = () => {
         namePoke={namePoke}
         individualPokemonAttack={pokemonAttack}
         pokePicture={pokePicture}
-        onClick={() => setSelectedIndex(1)}
+        onClick={() => {
+          setSelectedIndex(1)
+          setActiveButton(true)}}
         selected={selectedIndex === 1}
       />
       <Randompokemon
@@ -51,7 +54,9 @@ const Pokeinfo = () => {
         namePoke={namePoke}
         individualPokemonAttack={pokemonAttack}
         pokePicture={pokePicture}
-        onClick={() => setSelectedIndex(2)}
+        onClick={() => {
+          setSelectedIndex(2)
+          setActiveButton(true)}}
         selected={selectedIndex === 2}
       />
     </div>

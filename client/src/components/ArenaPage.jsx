@@ -5,7 +5,8 @@ import './arena.css';
 
 
 const ArenaPage = () => {
-
+const pokemon1 = [{url:""}, {pokeobject: ""}]; //Picture and Pokemon Objet from Pokedex
+const pokemon2 = pokemon1;
     
   return (
     <div className="wrapper">
