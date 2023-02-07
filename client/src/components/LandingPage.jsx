@@ -4,10 +4,12 @@ import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import React, { useState, useEffect } from "react";
 import Pokeinfo from "./PokemonCarousel";
+import Arenapage from "./ArenaPage"
 
 function LandingPage() {
 
  
+ const [toggle, setToggle] = useState(true)
 
   return (
     <div><Navbar bg="light" expand="lg">
@@ -23,13 +25,19 @@ function LandingPage() {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={() => setToggle(!toggle)}>Zur Arena</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
+    {toggle && 
     <Pokeinfo ></Pokeinfo>
-    {/* <Pokeinfo></Pokeinfo> */}
+    }
+    {!toggle && 
+    <Arenapage />
+    }
+    {/* <h1>Toggle cards = {JSON.stringify(toggle) }</h1> */}
+
     </div>
   );
 }
