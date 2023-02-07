@@ -1,6 +1,3 @@
-import React from "react";
-import { useState, useEffect } from "react";
-
 const fetchPokePicture = async (name) => {
   let pokePicture;
   await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)

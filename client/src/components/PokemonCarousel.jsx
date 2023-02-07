@@ -2,39 +2,46 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Randompokemon from "./PokemonCard";
 import fetchPokePicture from "./pokeApi";
+import axios from "axios"
 
 const Pokeinfo = () => {
   // fetch aus MongoDB-Datenbank
-  const [data, setData] = useState({});
-  const [individualPokemon, setIndividualPokemon] = useState();
-  const [individualPokemonAttack, setIndividualPokemonAttack] = useState();
+  const [pokedex, setPokedex] = useState({});
+  const [pokemonAttack, setPokemonAttack] = useState();
   // mit Pokedex verbinden
   const [pokeAttack, setPokeAttack] = useState(78);
   const [pokePicture, setPokePicture] = useState();
   const [namePoke, setNamePoke] = useState();
 
   useEffect(() => {
-    fetch("https://pokefight-ox3e.onrender.com/pokemon")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+    const fetchData = async () => {
+      const response = await fetch("https://pokefight-ox3e.onrender.com/pokemon");
+      const data = await response.json();
+
+        //save Pokedex locally
+        setPokedex(data.map((names) => names.name.english.toLowerCase()));
+        //generate random number
         const zufall = Math.floor(Math.random() * 800);
-        setData(data.map((names) => names.name.english.toLowerCase()));
-        setIndividualPokemon(data[zufall].name.english.toLowerCase());
-        setIndividualPokemonAttack(data[zufall].base.Attack);
+        
+        //save attack and name of randomly selected pokemon locally
+        setPokemonAttack(data[zufall].base.Attack);
         setNamePoke(data[zufall].name.english);
-        setPokePicture(async () => {
-          const test = await fetchPokePicture(individualPokemon);
-          console.log(test);
-          return test;
-        });
-      });
-  }, []);
+        //fetch picture of randomely selected pokemon and save locally
+        const pictureUrl= await fetchPokePicture(data[zufall].name.english.toLowerCase())
+        setPokePicture(pictureUrl);
+      };
+    
+    fetchData();
+  
+    }, []);
+
+  
+
 
   return (
     <div>
       {/* Lädt zwei Pokemon Cards  */}
-      {pokePicture ? (
+      {/* {pokePicture ? (
         <Randompokemon
           namePoke={namePoke}
           individualPokemonAttack={individualPokemonAttack}
@@ -47,18 +54,18 @@ const Pokeinfo = () => {
           individualPokemonAttack={individualPokemonAttack}
           pokeAttack={pokeAttack}
         />
-      )}
+      )} */}
 
       <Randompokemon
         namePoke={namePoke}
-        individualPokemonAttack={individualPokemonAttack}
+        individualPokemonAttack={pokemonAttack}
         pokeAttack={pokeAttack}
         pokePicture={pokePicture}
       />
       <Randompokemon
         namePoke={namePoke}
         pokeAttack={pokeAttack}
-        individualPokemonAttack={individualPokemonAttack}
+        individualPokemonAttack={pokemonAttack}
         pokePicture={pokePicture}
       />
     </div>
