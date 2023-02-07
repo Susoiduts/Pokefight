@@ -6,7 +6,7 @@ const ArenaButton = ({ activeButton, setToggle, toogle }) => {
   const handleClick = () => {
     setToggle((toogle) => {
       console.log("toogle", toogle)
-      toogle = !toogle});
+      return !toogle});
     console.log("test");
   };
 
