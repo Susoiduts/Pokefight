@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import React, { useState, useEffect } from "react";
 import Pokeinfo from "./PokemonCarousel";
+import StartButton from "./StartButton";
 
 function LandingPage() {
 
@@ -29,7 +30,8 @@ function LandingPage() {
     </Navbar>
 
     <Pokeinfo ></Pokeinfo>
-    {/* <Pokeinfo></Pokeinfo> */}
+
+    <StartButton ></StartButton>
     </div>
   );
 }
