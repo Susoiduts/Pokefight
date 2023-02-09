@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import React, { useState, useEffect } from "react";
-import Pokeinfo from "./PokemonCarousel";
+import Pokeinfo from "./PokemonInfo";
 
 import Arenapage from "./ArenaPage";
 
