@@ -72,8 +72,11 @@ const Pokeinfo = ({setActiveButton}) => {
     fetchData();
   }, []);
 
-
+  
+  const Pokemon3 = {namePoke3, pokemonAttack3, pokemonHealth, pokePicture3}
+  console.log(Pokemon3)
   return (
+    
     <div> 
       <Randompokemon
         key={1}
@@ -81,6 +84,7 @@ const Pokeinfo = ({setActiveButton}) => {
         individualPokemonAttack={pokemonAttack}
         healthPoke={pokemonHealth}
         pokePicture={pokePicture}
+        pokemon3={Pokemon3}
         onClick={() => {
           setSelectedIndex(1)
           setActiveButton(true)}}
@@ -96,9 +100,11 @@ const Pokeinfo = ({setActiveButton}) => {
           setSelectedIndex(2)
           setActiveButton(true)}}
         selected={selectedIndex === 2}
+        pokemon3={Pokemon3}
       />
     </div>
   );
 };
 
 export default Pokeinfo;
+ 
