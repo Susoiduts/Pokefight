@@ -2,109 +2,90 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Randompokemon from "./PokemonCard";
 import fetchPokePicture from "./pokeApi";
+import axios from "axios"
+
 // import {useEffectOnce} from "react-use" 
 
-const Pokeinfo = ({setActiveButton}) => {
-  
-  
+const Pokeinfo = ({selectedIndex, setActiveButton, setHealthPoints, setSelectedIndex, setSelectedPokemon, selectedPokemon}) => {
+    
   // fetch aus MongoDB-Datenbank
-  const [pokedex, setPokedex] = useState({}); //fpr Carousel and Search later
-  
-  //Stattdessen einen neuen useState "selctedPokemon" als Array mit Objekten [{pokeobject: pokeobject, imgUrl: ""}, {{pokeobject, imgUrl}} ]
-  const [pokePicture, setPokePicture] = useState([]);
-  const [pokePicture2, setPokePicture2] = useState({});
-  const [pokePicture3, setPokePicture3] = useState({});
-  const [namePoke, setNamePoke] = useState();
-  const [namePoke2, setNamePoke2] = useState();
-  const [namePoke3, setNamePoke3] = useState();
-  const [pokemonAttack, setPokemonAttack] = useState();
-  const [pokemonAttack2, setPokemonAttack2] = useState();
-  const [pokemonAttack3, setPokemonAttack3] = useState();
-  const [pokemonHealth, setPokemonHealth] = useState();
-  const [pokemonHealth2, setPokemonHealth2] = useState();
-  const [pokemonHealth3, setPokemonHealth3] = useState();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  
+  const [pokedex, setPokedex] = useState({}); //für Carousel and Search later
 
+
+ 
+  
   useEffect(() => {
     const fetchData = async () => {
       setActiveButton(false);
       //generate random number
-      const zufall = Math.floor(Math.random() * 800);
-      const zufall2 = Math.floor(Math.random() * 800);
-      const zufall3 = Math.floor(Math.random() * 800);
-      
+      // for loop; zufallszahl wird generiert + ein pokedexobjekt in useState array
+
       //fetch mongoDB DataSet
       const response = await fetch(
         "https://pokefight-ox3e.onrender.com/pokemon"
       );
       const data = await response.json();
       
+      //create an Array with containing 3 Pokemon with corresponding picture links
+      let uniqueNumbers = [];
+      let pokeArray=[];
+      for (let i = 0; i < 3; i++) {
+        let randomNumber = Math.floor(Math.random() * 800);
+        while (uniqueNumbers.includes(randomNumber)) {
+          randomNumber = Math.floor(Math.random() * 800);
+        } 
+      uniqueNumbers.push(randomNumber);
+      const pictureUrl = await fetchPokePicture(data[randomNumber].name.english.toLowerCase());
+      const pokeObject = {attributes: data[randomNumber], picture: pictureUrl }
+      pokeArray.push(pokeObject)
+      }
+      setSelectedPokemon(pokeArray)
+      
       //save Pokedex locally
       setPokedex(data.map((names) => names.name.english.toLowerCase()));
-      
-      //save attack and name of randomly selected pokemon locally
-      setNamePoke(data[zufall].name.english.toLowerCase());
-      setNamePoke2(data[zufall2].name.english.toLowerCase());
-      setNamePoke3(data[zufall3].name.english.toLowerCase());
-      setPokemonAttack(data[zufall].base.Attack);
-      setPokemonAttack2(data[zufall2].base.Attack);
-      setPokemonAttack3(data[zufall3].base.Attack);
-      setPokemonHealth(data[zufall].base.HP)  
-      setPokemonHealth2(data[zufall2].base.HP)  
-      setPokemonHealth3(data[zufall3].base.HP)  
-       
-      const pictureUrl = await fetchPokePicture(
-        
-        data[zufall].name.english.toLowerCase(),
-        data[zufall2].name.english.toLowerCase(),
-        data[zufall3].name.english.toLowerCase(),
-        );
 
-        setPokePicture(pictureUrl[0]);
-        setPokePicture2(pictureUrl[1]);
-        setPokePicture3(pictureUrl[2]);
-        console.log(pictureUrl)
- 
-      
-    };
-
+      //setHealtPoints for enemy
+      setHealthPoints([(pokeArray[2].attributes.base.HP),100])
+    
+    }
     fetchData();
   }, []);
-
   
-  const Pokemon3 = {namePoke3, pokemonAttack3, pokemonHealth, pokePicture3}
-  console.log(Pokemon3)
   return (
     
     <div> 
+      {selectedPokemon[0] ? (
+      <>
       <Randompokemon
         key={1}
-        namePoke={namePoke}
-        individualPokemonAttack={pokemonAttack}
-        healthPoke={pokemonHealth}
-        pokePicture={pokePicture}
-        pokemon3={Pokemon3}
+        namePoke={selectedPokemon[0].attributes.name.english}
+        individualPokemonAttack={selectedPokemon[0].attributes.base.attack}
+        healthPoke={selectedPokemon[0].attributes.base.HP}
+        pokePicture={selectedPokemon[0].picture}
         onClick={() => {
-          setSelectedIndex(1)
-          setActiveButton(true)}}
+          setSelectedIndex(1);
+          setActiveButton(true);
+          setHealthPoints([(100, selectedPokemon[0].attributes.base.HP)])}}
           selected={selectedIndex === 1}
-          />
-      <Randompokemon
+       />
+          
+          <Randompokemon
         key={2}
-        namePoke={namePoke2}
-        individualPokemonAttack={pokemonAttack2}
-        healthPoke={pokemonHealth2}
-        pokePicture={pokePicture2}
+        namePoke={selectedPokemon[1].attributes.name.english}
+        individualPokemonAttack={selectedPokemon[1].attributes.base.attack}
+        healthPoke={selectedPokemon[1].attributes.base.HP}
+        pokePicture={selectedPokemon[1].picture}
         onClick={() => {
-          setSelectedIndex(2)
-          setActiveButton(true)}}
+          setSelectedIndex(2);
+          setActiveButton(true);
+          setHealthPoints([(100, selectedPokemon[1].attributes.base.HP)])}}
         selected={selectedIndex === 2}
-        pokemon3={Pokemon3}
-      />
+        />
+      </>
+        )
+           : "loading"}
     </div>
   );
 };
 
 export default Pokeinfo;
- 

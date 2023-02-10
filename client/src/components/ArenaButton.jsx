@@ -2,17 +2,15 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 
-const ArenaButton = ({ activeButton, setToggle, toogle }) => {
+const ArenaButton = ({ activeButton, setToggle, toggle }) => {
   const handleClick = () => {
-    setToggle((toogle) => {
-      console.log("toogle", toogle)
-      return !toogle});
+    setToggle((prevToogle) => !prevToogle);
     console.log("test");
   };
 
   return (
     <>
-      {toogle ? (
+      {toggle ? (
         <Button
           variant="primary"
           size="lg"

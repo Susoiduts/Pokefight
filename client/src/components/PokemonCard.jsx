@@ -7,6 +7,7 @@ const Randompokemon = ({
   pokePicture,
   selected,
   onClick,
+
 }) => {
   return (
     <div onClick={onClick} style={{ borderStyle: selected ? "solid" : "none" }}>
@@ -14,7 +15,6 @@ const Randompokemon = ({
         <h1>{namePoke}</h1>
         <h2>{`Attack: ${individualPokemonAttack}`}</h2>
         <h2>{`Health: ${healthPoke}`}</h2>
-        {/* <h2>{pokeAttack}</h2> */}
         <img src={pokePicture} alt="" />
         <div className="abilities">
           <div className="group"></div>
