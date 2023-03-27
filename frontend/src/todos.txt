@@ -1,0 +1,6 @@
+- .js Dateien in root ordner verschieben
+- randompokemons ordner auflösen
+- ConnectPokeApi -> redundant zu Randomfetch? Mit in PokeCarousel
+- RandomFetchPokeApi in FetchPokeApi umbenennen
+
+- Bootstrap
