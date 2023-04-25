@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Randompokemon from "./PokemonCard";
 import fetchPokePicture from "./pokeApi";
-import axios from "axios"
 
 // import {useEffectOnce} from "react-use" 
 
@@ -18,7 +17,7 @@ const Pokeinfo = ({selectedIndex, setActiveButton, setHealthPoints, setSelectedI
     const fetchData = async () => {
       setActiveButton(false);
       //generate random number
-      // for loop; zufallszahl wird generiert + ein pokedexobjekt in useState array
+      //for loop; zufallszahl wird generiert + ein pokedexobjekt in useState array
 
       //fetch mongoDB DataSet
       const response = await fetch(
