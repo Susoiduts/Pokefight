@@ -66,11 +66,13 @@ body::-webkit-scrollbar {
     color: #fff;
     font-weight: 600;
     margin: 1.25em 0;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
   }
   
   .hp-bar .fill {
     background-color: #4caf50;
-    border-radius: 10px;
     height: 20px;
   }
   

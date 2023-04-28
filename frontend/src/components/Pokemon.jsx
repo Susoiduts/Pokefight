@@ -28,9 +28,9 @@ function Pokemon({ name, HP, attack, picture }) {
           </div>
 
           {/* Hp-Bar */}
-          <div className="hp-bar">
+          <div className="hp-bar" style={{position: "relative"}}>
+              <div style={{position: "absolute", left:"50%", transform: "translate(-50%)"}}>HP: {HP}</div>
             <div className="fill" style={{ width: `${HP/fullHp*100}%` }}>
-              <p>HP: {HP}</p>
             </div>
           </div>
 
