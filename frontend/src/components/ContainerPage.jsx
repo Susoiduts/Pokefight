@@ -1,21 +1,15 @@
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Pokeinfo from "./PokemonSelection";
-
 import Arenapage from "./Arena";
-
 import StartButton from "./ArenaButton";
 
 function LandingPage() {
   const [activeButton, setActiveButton] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState();
-  const [selectedPokemon, setSelectedPokemon] = useState([])
-
+  const [selectedPokemon, setSelectedPokemon] = useState([]);
   const [toggle, setToggle] = useState(false);
-  const [healthPoints, setHealthPoints] = useState([100, 100])
 
   return (
     <div>
@@ -41,8 +35,22 @@ function LandingPage() {
           </Navbar.Collapse> */}
         </Container>
       </Navbar>
-      {!toggle && <Pokeinfo setActiveButton={setActiveButton} setHealthPoints={setHealthPoints} setSelectedIndex={setSelectedIndex} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} selectedIndex={selectedIndex}></Pokeinfo>}
-      {toggle && <Arenapage setHealthPoints={setHealthPoints} healthPoints={healthPoints} selectedIndex={selectedIndex} selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon}/>}
+      {!toggle && (
+        <Pokeinfo
+          setActiveButton={setActiveButton}
+          setSelectedIndex={setSelectedIndex}
+          selectedPokemon={selectedPokemon}
+          setSelectedPokemon={setSelectedPokemon}
+          selectedIndex={selectedIndex}
+        ></Pokeinfo>
+      )}
+      {toggle && (
+        <Arenapage
+          selectedIndex={selectedIndex}
+          selectedPokemon={selectedPokemon}
+          setSelectedPokemon={setSelectedPokemon}
+        />
+      )}
       {/* <h1>Toggle cards = {JSON.stringify(toggle) }</h1> */}
     </div>
   );

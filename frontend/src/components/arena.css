@@ -62,7 +62,6 @@ body::-webkit-scrollbar {
   }
   
   .hp-bar {
-    width: 95%;
     text-align: center;
     color: #fff;
     font-weight: 600;
