@@ -9,7 +9,6 @@ function Pokemon({ name, HP, attack, picture }) {
       <div className="pokemon-card">
         <div className="pokemon-header">
           <h1>{name}</h1>
-          <h1>Pokename</h1>
           {/* Pokeimage */}
 
           <img src={picture}></img>
@@ -28,10 +27,20 @@ function Pokemon({ name, HP, attack, picture }) {
           </div>
 
           {/* Hp-Bar */}
-          <div className="hp-bar" style={{position: "relative"}}>
-              <div style={{position: "absolute", left:"50%", transform: "translate(-50%)"}}>HP: {HP}</div>
-            <div className="fill" style={{ width: `${HP/fullHp*100}%` }}>
+          <div className="hp-bar" style={{ position: "relative" }}>
+            <div
+              style={{
+                position: "absolute",
+                left: "50%",
+                transform: "translate(-50%)",
+              }}
+            >
+              HP: {HP}
             </div>
+            <div
+              className="fill"
+              style={{ width: `${(HP / fullHp) * 100}%` }}
+            ></div>
           </div>
 
           {/* Pokedetails */}

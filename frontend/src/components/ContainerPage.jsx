@@ -12,7 +12,7 @@ function LandingPage() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       <Navbar bg="light" expand="lg">
         <Container fluid>
           <Navbar.Brand href="#">Pokefight</Navbar.Brand>
@@ -21,18 +21,6 @@ function LandingPage() {
             setToggle={setToggle}
             toggle={toggle}
           ></StartButton>
-          {/* <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-          </Navbar.Collapse> */}
         </Container>
       </Navbar>
       {!toggle && (
@@ -51,7 +39,6 @@ function LandingPage() {
           setSelectedPokemon={setSelectedPokemon}
         />
       )}
-      {/* <h1>Toggle cards = {JSON.stringify(toggle) }</h1> */}
     </div>
   );
 }

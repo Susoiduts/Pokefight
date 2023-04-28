@@ -56,7 +56,7 @@ const Pokeinfo = ({
   }, []);
 
   return (
-    <div>
+    <div style={{display:"flex", justifyContent:"space-around", alignItems: "center", height: "100%", padding: "0% 20% 10%"}}>
       {selectedPokemon[0] ? (
         <>
           <Randompokemon
