@@ -51,6 +51,12 @@ body::-webkit-scrollbar {
   
   .pokemon-card p {
     font-size: 1.25em;
+    
+  }
+
+  .card img {
+    height: 100px;
+    object-fit: contain;
   }
   
   .pokemon-header {

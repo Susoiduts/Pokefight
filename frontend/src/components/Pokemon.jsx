@@ -1,5 +1,4 @@
 import React from "react";
-import not_found from "../assets/images/not_found.png";
 import { useState } from "react";
 
 function Pokemon({ name, HP, attack, picture }) {
@@ -9,9 +8,9 @@ function Pokemon({ name, HP, attack, picture }) {
       <div className="pokemon-card">
         <div className="pokemon-header">
           <h1>{name}</h1>
-          {/* Pokeimage */}
 
-          <img src={picture}></img>
+          {/* Pokeimage */}
+          <img src={picture} alt="PokePic"></img>
 
           {/* Pokeball */}
           <div className="pokeball">
