@@ -1,5 +1,3 @@
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
 import React, { useState } from "react";
 import Pokeinfo from "./PokemonSelection";
 import Arenapage from "./Arena";
@@ -12,17 +10,7 @@ function LandingPage() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div style={{ height: "100vh" }}>
-      <Navbar bg="light" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="#">Pokefight</Navbar.Brand>
-          <StartButton
-            activeButton={activeButton}
-            setToggle={setToggle}
-            toggle={toggle}
-          ></StartButton>
-        </Container>
-      </Navbar>
+    <div id="PageContainer" style={{ height: "100vh", paddingTop: "5%", position: "relative" }}>
       {!toggle && (
         <Pokeinfo
           setActiveButton={setActiveButton}
@@ -39,6 +27,12 @@ function LandingPage() {
           setSelectedPokemon={setSelectedPokemon}
         />
       )}
+      <StartButton
+        activeButton={activeButton}
+        setToggle={setToggle}
+        toggle={toggle}
+        
+      />
     </div>
   );
 }

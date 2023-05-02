@@ -56,9 +56,32 @@ const Pokeinfo = ({
   }, []);
 
   return (
-    <div style={{display:"flex", justifyContent:"space-around", alignItems: "center", height: "100%", padding: "0% 20% 10%"}}>
+    <div
+      id="PokemonSelection"
+      style={{
+        height: "95%",
+        padding: "0% 20% 10%",
+      }}
+    >
+      <div
+        style={{
+          textAlign: "center",
+          fontSize: "3em",
+          color: "white",
+          backgroundColor: "grey",
+          margin: "20px",
+        }}
+      >
+        Choose your Pokemon
+      </div>
       {selectedPokemon[0] ? (
-        <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
           <Randompokemon
             key={0}
             namePoke={selectedPokemon[0].attributes.name.english}
@@ -84,7 +107,7 @@ const Pokeinfo = ({
             }}
             selected={selectedIndex === 1}
           />
-        </>
+        </div>
       ) : (
         "loading"
       )}

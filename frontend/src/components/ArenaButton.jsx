@@ -1,11 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
 
 const ArenaButton = ({ activeButton, setToggle, toggle }) => {
   const handleClick = () => {
     setToggle((prevToogle) => !prevToogle);
-    console.log("test");
   };
 
   return (
@@ -17,6 +15,7 @@ const ArenaButton = ({ activeButton, setToggle, toggle }) => {
           onClick={handleClick}
           disabled={!activeButton}
           active={activeButton}
+          style={{ position: 'absolute', top: '80%', left: '50%', transform: 'translateX(-50%)' }}
         >
           Zum Start
         </Button>
@@ -27,6 +26,7 @@ const ArenaButton = ({ activeButton, setToggle, toggle }) => {
           onClick={handleClick}
           disabled={!activeButton}
           active={activeButton}
+          style={{ position: 'absolute', top: '80%', left: '50%', transform: 'translateX(-50%)' }}
         >
           Zur Arena
         </Button>
