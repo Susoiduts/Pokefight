@@ -10,7 +10,10 @@ function Pokemon({ name, HP, attack, picture }) {
           <h1>{name}</h1>
 
           {/* Pokeimage */}
-          <img src={picture} alt="PokePic"></img>
+          <div style={{height: "256px"}}>
+
+          <img src={picture} alt=""/>
+          </div>
 
           {/* Pokeball */}
           <div className="pokeball">

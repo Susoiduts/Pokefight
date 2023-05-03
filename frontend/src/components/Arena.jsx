@@ -6,6 +6,7 @@ import { useState } from "react";
 function ArenaPage({
   selectedIndex: indexOfSelectedPokemon,
   selectedPokemon: arrayWithPokemonSelection,
+  setShow,
 }) {
   //assign the data of the pokemon selected by the player + hp of the pokemon
   const pokemonPlayer = arrayWithPokemonSelection[indexOfSelectedPokemon];
@@ -20,9 +21,10 @@ function ArenaPage({
 
   useEffect(() => {
     if (hpPokemonNPC === 0) {
-      setTimeout(() => {
-        alert("You won!");
-      }, 100);
+      setShow(true);
+      // setTimeout(() => {
+      //   alert("You won!");
+      // }, 100);
     }
   }, [hpPokemonNPC]);
 
@@ -49,7 +51,7 @@ function ArenaPage({
       />
       <div className="poke-fight">
         <button onClick={handleClick} id="btn-fight">
-          FIGHT
+          ATTACK
         </button>
       </div>
       <Pokemon

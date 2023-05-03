@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Pokeinfo from "./PokemonSelection";
 import Arenapage from "./Arena";
 import StartButton from "./ArenaButton";
+import WinAlert from "./WinAlert";
 
 function LandingPage() {
   const [activeButton, setActiveButton] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState();
   const [selectedPokemon, setSelectedPokemon] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [show, setShow] = useState(true);
 
   return (
     <div id="PageContainer" style={{ height: "100vh", paddingTop: "5%", position: "relative" }}>
@@ -25,6 +27,7 @@ function LandingPage() {
           selectedIndex={selectedIndex}
           selectedPokemon={selectedPokemon}
           setSelectedPokemon={setSelectedPokemon}
+          setShow={setShow}
         />
       )}
       <StartButton
@@ -33,7 +36,9 @@ function LandingPage() {
         toggle={toggle}
         
       />
+      <WinAlert show={show} setShow={setShow} setToggle={setToggle}/>
     </div>
+    
   );
 }
 
