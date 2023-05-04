@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Randompokemon from "./PokemonCard";
 import fetchPokePicture from "./pokeApi";
+import fetchPokemon from "./fetchPokemon";
 
 // import {useEffectOnce} from "react-use"
 
@@ -18,11 +19,6 @@ const Pokeinfo = ({
   useEffect(() => {
     const fetchData = async () => {
       setActiveButton(false);
-      //fetch a list with the data of all Pokemon and save in data
-      const response = await fetch(
-        "https://pokefight-ox3e.onrender.com/pokemon"
-      );
-      const data = await response.json();
 
       //create an array containing three unique indices Pokemon
       let uniqueNumbers = [];
@@ -35,22 +31,20 @@ const Pokeinfo = ({
           randomNumber = Math.floor(Math.random() * 800);
         }
         uniqueNumbers.push(randomNumber);
-        //fetch picture URL of Pokemon
-        const pictureUrl = await fetchPokePicture(
-          data[randomNumber].name.english.toLowerCase()
-        );
+        //fetch data of Pokemon
+        let pokemonData = await fetchPokemon(randomNumber);
+        console.log(pokemonData)
         //compile object containing the pokemon data + picture URL
         const pokeObject = {
-          attributes: data[randomNumber],
-          picture: pictureUrl,
+          name: pokemonData.name,
+          hp: Math.floor(Math.random() * (100 - 50 + 1)) + 50,
+          attack: Math.floor(Math.random() * (25 - 10 + 1)) + 10,
+          picture: pokemonData.sprites.other.home.front_default,
         };
         //push created pokeObject to poke array
         pokeArray.push(pokeObject);
       }
       setSelectedPokemon(pokeArray);
-
-      //save Pokedex locally
-      setPokedex(data.map((names) => names.name.english.toLowerCase()));
     };
     fetchData();
   }, []);
@@ -84,9 +78,9 @@ const Pokeinfo = ({
         >
           <Randompokemon
             key={0}
-            namePoke={selectedPokemon[0].attributes.name.english}
-            individualPokemonAttack={selectedPokemon[0].attributes.base.attack}
-            healthPoke={selectedPokemon[0].attributes.base.HP}
+            namePoke={selectedPokemon[0].name}
+            individualPokemonAttack={selectedPokemon[0].attack}
+            healthPoke={selectedPokemon[0].hp}
             pokePicture={selectedPokemon[0].picture}
             onClick={() => {
               setSelectedIndex(0);
@@ -97,9 +91,9 @@ const Pokeinfo = ({
 
           <Randompokemon
             key={1}
-            namePoke={selectedPokemon[1].attributes.name.english}
-            individualPokemonAttack={selectedPokemon[1].attributes.base.attack}
-            healthPoke={selectedPokemon[1].attributes.base.HP}
+            namePoke={selectedPokemon[1].name}
+            individualPokemonAttack={selectedPokemon[1].attack}
+            healthPoke={selectedPokemon[1].hp}
             pokePicture={selectedPokemon[1].picture}
             onClick={() => {
               setSelectedIndex(1);

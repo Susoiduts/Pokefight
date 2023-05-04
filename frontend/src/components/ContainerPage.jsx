@@ -9,7 +9,7 @@ function LandingPage() {
   const [selectedIndex, setSelectedIndex] = useState();
   const [selectedPokemon, setSelectedPokemon] = useState([]);
   const [toggle, setToggle] = useState(false);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   return (
     <div id="PageContainer" style={{ height: "100vh", paddingTop: "5%", position: "relative" }}>
@@ -36,7 +36,7 @@ function LandingPage() {
         toggle={toggle}
         
       />
-      <WinAlert show={show} setShow={setShow} setToggle={setToggle}/>
+      <WinAlert show={show} setShow={setShow} setToggle={setToggle} setSelectedPokemon={setSelectedPokemon}/>
     </div>
     
   );

@@ -1,15 +1,12 @@
-- additional Button: generate new selection
-
-fight mechanics
-- "you won" pop up placement / native react pop up
-- automatic backrouting after dismissing alert
-
 api related
+- additional Button: generate new selection
 - image not found - repeat fetch if no image?
 - animation while loading
 
 - styling buttons/textfields
 
 - responsiveness
+
+- readme
 
 - background music: selection and fight

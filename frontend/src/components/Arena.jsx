@@ -10,29 +10,20 @@ function ArenaPage({
 }) {
   //assign the data of the pokemon selected by the player + hp of the pokemon
   const pokemonPlayer = arrayWithPokemonSelection[indexOfSelectedPokemon];
-  const [hpPokemonPlayer, setHpPokemonPlayer] = useState(
-    pokemonPlayer.attributes.base.HP
-  );
+  const [hpPokemonPlayer, setHpPokemonPlayer] = useState(pokemonPlayer.hp);
   //assign the data of the NPC pokemon + hp of the pokemon
   const pokemonNPC = arrayWithPokemonSelection[2];
-  const [hpPokemonNPC, setHpPokemonNPC] = useState(
-    pokemonNPC.attributes.base.HP
-  );
+  const [hpPokemonNPC, setHpPokemonNPC] = useState(pokemonNPC.hp);
 
   useEffect(() => {
     if (hpPokemonNPC === 0) {
       setShow(true);
-      // setTimeout(() => {
-      //   alert("You won!");
-      // }, 100);
     }
   }, [hpPokemonNPC]);
 
   function handleClick() {
     setHpPokemonNPC((prev) => {
-      const newHp = eval(
-        hpPokemonNPC - Math.ceil(pokemonPlayer.attributes.base.Attack / 4)
-      );
+      const newHp = eval(hpPokemonNPC - Math.ceil(pokemonPlayer.attack / 4));
       if (newHp > 0) {
         return newHp;
       } else {
@@ -44,9 +35,9 @@ function ArenaPage({
   return (
     <div className="wrapper">
       <Pokemon
-        name={pokemonPlayer.attributes.name.english}
+        name={pokemonPlayer.name}
         HP={hpPokemonPlayer}
-        attack={pokemonPlayer.attributes.base.Attack}
+        attack={pokemonPlayer.attack}
         picture={pokemonPlayer.picture}
       />
       <div className="poke-fight">
@@ -55,9 +46,9 @@ function ArenaPage({
         </button>
       </div>
       <Pokemon
-        name={pokemonNPC.attributes.name.english}
+        name={pokemonNPC.name}
         HP={hpPokemonNPC}
-        attack={pokemonNPC.attributes.base.Attack}
+        attack={pokemonNPC.attack}
         picture={pokemonNPC.picture}
       />
     </div>
