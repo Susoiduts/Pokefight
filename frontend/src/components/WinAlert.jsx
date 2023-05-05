@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function WinAlert({ show, setShow, setToggle, setSelectedPokemon }) {
+function WinAlert({ show, setShow, setToggle, setSelectedIndex }) {
   const handleClose = () => {
     setShow(false);
     setToggle(false);
-
+    setSelectedIndex();
   };
 
   return (

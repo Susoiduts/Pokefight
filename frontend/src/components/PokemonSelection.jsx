@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Randompokemon from "./PokemonCard";
-import fetchPokePicture from "./pokeApi";
 import fetchPokemon from "./fetchPokemon";
 
 // import {useEffectOnce} from "react-use"
@@ -33,12 +32,12 @@ const Pokeinfo = ({
         uniqueNumbers.push(randomNumber);
         //fetch data of Pokemon
         let pokemonData = await fetchPokemon(randomNumber);
-        console.log(pokemonData)
+        console.log(pokemonData);
         //compile object containing the pokemon data + picture URL
         const pokeObject = {
           name: pokemonData.name,
           hp: Math.floor(Math.random() * (100 - 50 + 1)) + 50,
-          attack: Math.floor(Math.random() * (25 - 10 + 1)) + 10,
+          attack: Math.floor(Math.random() * (45 - 25 + 1)) + 25,
           picture: pokemonData.sprites.other.home.front_default,
         };
         //push created pokeObject to poke array

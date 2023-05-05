@@ -1,12 +1,14 @@
-api related
-- additional Button: generate new selection
-- image not found - repeat fetch if no image?
-- animation while loading
-
 - styling buttons/textfields
 
 - responsiveness
 
+
+api related
+- animation while loading
+
+
 - readme
+
+- deployment
 
 - background music: selection and fight

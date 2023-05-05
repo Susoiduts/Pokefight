@@ -23,7 +23,7 @@ function ArenaPage({
 
   function handleClick() {
     setHpPokemonNPC((prev) => {
-      const newHp = eval(hpPokemonNPC - Math.ceil(pokemonPlayer.attack / 4));
+      const newHp = eval(hpPokemonNPC - Math.ceil(pokemonPlayer.attack));
       if (newHp > 0) {
         return newHp;
       } else {

@@ -17,7 +17,7 @@ const ArenaButton = ({ activeButton, setToggle, toggle }) => {
           active={activeButton}
           style={{ position: 'absolute', top: '80%', left: '50%', transform: 'translateX(-50%)' }}
         >
-          Zum Start
+          Exit Game
         </Button>
       ) : (
         <Button

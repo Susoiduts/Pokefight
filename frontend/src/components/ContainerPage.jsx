@@ -36,7 +36,7 @@ function LandingPage() {
         toggle={toggle}
         
       />
-      <WinAlert show={show} setShow={setShow} setToggle={setToggle} setSelectedPokemon={setSelectedPokemon}/>
+      <WinAlert show={show} setShow={setShow} setToggle={setToggle} setSelectedIndex={setSelectedIndex}/>
     </div>
     
   );

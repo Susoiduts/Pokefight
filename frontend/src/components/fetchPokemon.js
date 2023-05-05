@@ -1,17 +1,3 @@
-// function fetchPokemon(pokemonId) {
-//   return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-//     .then((response) => response.json())
-//     .then((data) => data);
-// }
-
-// async function fetchPokemon(pokemonId) {
-//     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-//     const data = await response.json();
-//     return data;
-//   }
-
-// export default fetchPokemon;
-
 import axios from "axios";
 const fetchPokemon = async (pokemonId) => {
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
