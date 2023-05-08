@@ -49,20 +49,14 @@ const Pokeinfo = ({
   }, []);
 
   return (
-    <div
-      id="PokemonSelection"
-      style={{
-        height: "95%",
-        padding: "0% 20% 10%",
-      }}
-    >
+    <div id="PokemonSelection">
       <div
         style={{
           textAlign: "center",
-          fontSize: "3em",
+          fontSize: "max(3.5vw, 1.5em)",
           color: "white",
           backgroundColor: "grey",
-          margin: "20px",
+          margin: "20px 0px",
         }}
       >
         Choose your Pokemon

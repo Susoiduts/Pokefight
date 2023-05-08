@@ -2,13 +2,4 @@
 
 - responsiveness
 
-
-api related
-- animation while loading
-
-
-- readme
-
-- deployment
-
 - background music: selection and fight

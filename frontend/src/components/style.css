@@ -1,46 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-*{
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    background-color: #fceec8;
+  background-color: #fceec8;
 }
 
 .container {
-    width: 90%;
-    margin: auto;
-    padding-top: 100px;
-    display: flex;
+  width: 90%;
+  margin: auto;
+  padding-top: 100px;
+  display: flex;
 }
 
-.left-content,.right-content {
-    flex-basis: 50%;
+.left-content,
+.right-content {
+  flex-basis: 50%;
 }
 
 .left-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
-    grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
+  grid-gap: 2rem;
 }
 
 .card {
-    width: 320px;
-    background-color: #9edef9;
-    box-shadow: 0 5px 5px rgba(0, 0,0,0.5);
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    border-radius: 1rem;
-
-
+  flex: 1;
+  max-width: 320px;
+  min-width: 130px;
+  margin: 0 10px;
+  background-color: #9edef9;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-radius: 1rem;
 }
 
 .card img {
-    width: 100px;
+  width: 100px;
+}
+#PokemonSelection {
+  margin: 0% 20%;
+  min-width: 300px;
+}
+
+@media (max-width: 520px) {
+  #PokemonSelection {
+    margin: 0 calc((100% - 310px) / 2);
+  }
 }
