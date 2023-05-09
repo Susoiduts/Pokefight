@@ -1,5 +1,3 @@
 - styling buttons/textfields
 
-- responsiveness
-
 - background music: selection and fight
