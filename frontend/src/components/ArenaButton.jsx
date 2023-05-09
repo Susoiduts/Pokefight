@@ -15,7 +15,7 @@ const ArenaButton = ({ activeButton, setToggle, toggle }) => {
           onClick={handleClick}
           disabled={!activeButton}
           active={activeButton}
-          style={{ position: 'absolute', top: '80%', left: '50%', transform: 'translateX(-50%)' }}
+          style={{ position: 'absolute', top: '85%', left: '50%', transform: 'translateX(-50%)' }}
         >
           Exit Game
         </Button>

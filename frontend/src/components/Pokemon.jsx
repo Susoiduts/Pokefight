@@ -7,12 +7,15 @@ function Pokemon({ name, HP, attack, picture }) {
     <div>
       <div className="pokemon-card">
         <div className="pokemon-header">
+          <div className="arenaPokeCardHeaderMobile">
+
           <h1>{name}</h1>
 
           {/* Pokeimage */}
-          <div style={{height: "256px"}}>
+          <div className="arenaPokeImg">
 
           <img src={picture} alt=""/>
+          </div>
           </div>
 
           {/* Pokeball */}

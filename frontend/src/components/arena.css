@@ -12,15 +12,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.App {
-  min-height: 107vh;
-}
-
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .poke-fight {
@@ -43,9 +38,26 @@ body::-webkit-scrollbar {
   padding: 3%;
 }
 
+.arenaPokeImg {
+  height: 256px;
+}
 .pokemon-card img {
   height: 256px;
   object-fit: contain;
+}
+@media screen and (max-width: 1050px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .arenaPokeImg {
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .arenaPokeImg img {
+    height: 100px;
+    object-fit: contain;
+  }
 }
 
 .pokemon-card p {
@@ -141,14 +153,12 @@ body::-webkit-scrollbar {
   margin-top: 2em;
   animation: fall 0.25s ease-in-out,
     shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 5;
+  box-shadow: inset 1em 0.25em #26262650;
+  background: linear-gradient(360deg, white 50%, red 50%);
 }
 
 .pokeball:hover {
   animation: step-end;
-}
-.pokeball {
-  box-shadow: inset 1em 0.25em #26262650;
-  background: linear-gradient(360deg, white 50%, red 50%);
 }
 
 .inner-circle,
@@ -298,5 +308,41 @@ body::-webkit-scrollbar {
   }
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .arenaPokeImg {
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .arenaPokeImg img {
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .pokeball {
+    display: none;
+  }
+
+  .arenaPokeCardHeaderMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+  }
+
+  #btn-fight {
+    margin: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    transform: scale(0.6);
   }
 }

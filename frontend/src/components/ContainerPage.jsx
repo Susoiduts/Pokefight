@@ -12,7 +12,7 @@ function LandingPage() {
   const [show, setShow] = useState(false);
 
   return (
-    <div id="PageContainer" style={{ height: "100vh", paddingTop: "5%", position: "relative" }}>
+    <div id="PageContainer" style={{ height: "100vh", padding: "5% 0% 10%", position: "relative" }}>
       {!toggle && (
         <Pokeinfo
           setActiveButton={setActiveButton}
